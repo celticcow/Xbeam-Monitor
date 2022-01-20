@@ -1,0 +1,48 @@
+./create_ip380-1.sh 192.168.59.169_ACluster_1 1210869000
+./create_mem.sh 192.168.59.169_ACluster_1 1210869000
+./create_linuxcpu.sh 192.168.59.169_ACluster_1 1210869000 1
+./create_linuxcpu.sh 192.168.59.169_ACluster_1 1210869000 2
+./create_ip380-1.sh 192.168.59.169_ACluster_2 1210869000
+./create_mem.sh 192.168.59.169_ACluster_2 1210869000
+./create_linuxcpu.sh 192.168.59.169_ACluster_2 1210869000 1
+./create_linuxcpu.sh 192.168.59.169_ACluster_2 1210869000 2
+./create_ip380-1.sh 192.168.59.169_ACluster_3 1210869000
+./create_mem.sh 192.168.59.169_ACluster_3 1210869000
+./create_linuxcpu.sh 192.168.59.169_ACluster_3 1210869000 1
+./create_linuxcpu.sh 192.168.59.169_ACluster_3 1210869000 2
+./create_ip380-1.sh 192.168.59.169_BCluster_1 1210869000
+./create_mem.sh 192.168.59.169_BCluster_1 1210869000
+./create_linuxcpu.sh 192.168.59.169_BCluster_1 1210869000 1
+./create_linuxcpu.sh 192.168.59.169_BCluster_1 1210869000 2
+./create_ip380-1.sh 192.168.59.169_BCluster_2 1210869000
+./create_mem.sh 192.168.59.169_BCluster_2 1210869000
+./create_linuxcpu.sh 192.168.59.169_BCluster_2 1210869000 1
+./create_linuxcpu.sh 192.168.59.169_BCluster_2 1210869000 2
+./create_ip380-1.sh 192.168.59.169_BCluster_3 1210869000
+./create_mem.sh 192.168.59.169_BCluster_3 1210869000
+./create_linuxcpu.sh 192.168.59.169_BCluster_3 1210869000 1
+./create_linuxcpu.sh 192.168.59.169_BCluster_3 1210869000 2
+./create_ip380-1.sh 192.168.59.140_ACluster_1 1210869000
+./create_mem.sh 192.168.59.140_ACluster_1 1210869000
+./create_linuxcpu.sh 192.168.59.140_ACluster_1 1210869000 1
+./create_linuxcpu.sh 192.168.59.140_ACluster_1 1210869000 2
+./create_ip380-1.sh 192.168.59.140_ACluster_2 1210869000
+./create_mem.sh 192.168.59.140_ACluster_2 1210869000
+./create_linuxcpu.sh 192.168.59.140_ACluster_2 1210869000 1
+./create_linuxcpu.sh 192.168.59.140_ACluster_2 1210869000 2
+./create_ip380-1.sh 192.168.59.140_ACluster_3 1210869000
+./create_mem.sh 192.168.59.140_ACluster_3 1210869000
+./create_linuxcpu.sh 192.168.59.140_ACluster_3 1210869000 1
+./create_linuxcpu.sh 192.168.59.140_ACluster_3 1210869000 2
+./create_ip380-1.sh 192.168.59.140_BCluster_1 1210869000
+./create_mem.sh 192.168.59.140_BCluster_1 1210869000
+./create_linuxcpu.sh 192.168.59.140_BCluster_1 1210869000 1
+./create_linuxcpu.sh 192.168.59.140_BCluster_1 1210869000 2
+./create_ip380-1.sh 192.168.59.140_BCluster_2 1210869000
+./create_mem.sh 192.168.59.140_BCluster_2 1210869000
+./create_linuxcpu.sh 192.168.59.140_BCluster_2 1210869000 1
+./create_linuxcpu.sh 192.168.59.140_BCluster_2 1210869000 2
+./create_ip380-1.sh 192.168.59.140_BCluster_3 1210869000
+./create_mem.sh 192.168.59.140_BCluster_3 1210869000
+./create_linuxcpu.sh 192.168.59.140_BCluster_3 1210869000 1
+./create_linuxcpu.sh 192.168.59.140_BCluster_3 1210869000 2

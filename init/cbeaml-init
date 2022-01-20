@@ -1,0 +1,37 @@
+#!/bin/sh
+
+#poet          : Greg Dunlap
+#last mod date : 05.29.08
+
+# processname: /etc/init.d/cbeaml-init
+# config: /etc/init.d/cbeaml-init
+# config: /etc/init.d/cbeaml-init
+
+# chkconfig: 2345 99 99
+# description: cbeaml start stop script
+
+### chkconfig --add cbeaml-init
+### chkconfig --level 2345 cbeaml-init on
+
+#Source function library.
+. /etc/init.d/functions
+
+
+RETVAL=0
+prog="cbeam-init"
+
+case $1 in
+    start)
+	echo "Starting cbeaml"
+	/root/cbeaml > /dev/null 2> /dev/null &
+	touch /var/lock/subsys/cbeam-init
+	;;
+    stop)
+	echo "Stoppping cbeaml"
+	kill -9 `ps -ef | grep -i '/root/cbeaml' | grep -v 'grep'  | awk '{print $2}'`
+	rm -f /var/lock/subsys/cbeam-init
+	;;
+    *)
+	echo "use stop or start dude"
+	;;
+esac

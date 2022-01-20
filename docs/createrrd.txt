@@ -1,0 +1,65 @@
+./create_ip380-1.sh COSD_1 1210869000
+./create_linuxcpu.sh COSD_1 1210869000 1
+./create_linuxcpu.sh COSD_1 1210869000 2
+./create_mem.sh COSD_1 1210869000
+
+
+./create_ip380-1.sh COSZ_1 1210869000
+./create_mem.sh COSZ_1 1210869000
+./create_linuxcpu.sh COSZ_1 1210869000 1
+./create_linuxcpu.sh COSZ_1 1210869000 2
+
+./create_ip380-1.sh COSZ_2 1210869000
+./create_mem.sh COSZ_2 1210869000
+./create_linuxcpu.sh COSZ_2 1210869000 1
+./create_linuxcpu.sh COSZ_2 1210869000 2
+
+#################################################
+./create_ip380-1.sh SERVER_TAG 1210869000
+./create_mem.sh SERVER_TAG 1210869000
+./create_linuxcpu.sh SERVER_TAG 1210869000 1
+./create_linuxcpu.sh SERVER_TAG 1210869000 2
+#################################################
+
+
+-rw-r--r--    1 gdunlap  isrd      1796956 May 15 12:40 a3.fw.fedex.com.rrd
+
+temp3
+
+time stamp 1210869000
+
+COSD_1
+COSD_2
+COSZ_1
+COSZ_2
+
+/opt/httpd/htdocs/infocon2/polsplat2.pl
+
+collect CPU / CPU0 CPU1
+
+my $idle;
+my @cpucore0;
+my @cpucore1;
+my $memtotal;
+my $memused;
+
+
+my $cpu0user   
+my $cpu0nice   
+my $cpu0system 
+my $cpu0iowait 
+my $cpu0irq    
+my $cpu0softirq
+my $cpu0idle   
+
+
+user nice system iowait irq sorftirq idle
+
+
+	  printf("User     : %f\n", cpuavg[0]);
+	  printf("Nice     : %f\n", cpuavg[1]);
+	  printf("System   : %f\n", cpuavg[2]);
+	  printf("Idle     : %f\n", cpuavg[3]);
+	  printf("IOWait   : %f\n", cpuavg[4]);
+	  printf("IRQ      : %f\n", cpuavg[5]);
+	  printf("Soft IRQ : %f\n", cpuavg[6]);

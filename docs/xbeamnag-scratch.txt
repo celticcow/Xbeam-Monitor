@@ -1,0 +1,71 @@
+
+rsh -l root ACluster_1 "cat /proc/stat;sleep 2;cat /proc/stat"
+
+/usr/bin/rsh -l root ACluster_1 "/bin/cat /proc/stat | /bin/grep -i 'cpu'"
+sleep(2)
+user nice system  irq  softirq iowait idle
+
+
+ACluster_1 (fwtest): root$ cat /proc/stat 
+cpu  2032962 0 2438724 508214737 60449 437324 11705471
+cpu0 958713 0 1164479 254198807 28473 371819 5722610
+cpu1 1074249 0 1274245 254015930 31976 65505 5982861
+
+
+
+used  = user + nice + system = irq + softirq + iowait
+total = user + nice + system = irq + softirq + iowait + idle
+
+%var%_used = percent(var, var2, total, total2)
+
+Percent return int
+
+if(( total2 - total1) != 0)
+then
+
+var_used = (100*(double)(u2-u1)) / (double)(total2-total1)
+
+else
+
+var_used = 0
+
+
+total20 total00
+
+
+
+
+my $total00 = $cpu0[1] + $cpu0[2] + $cpu0[3] + $cpu0[4] + $cpu0[5] + $cpu0[6] + $cpu0[7];
+my $total01 = $cpu1[1] + $cpu1[2] + $cpu1[3] + $cpu1[4] + $cpu1[5] + $cpu1[6] + $cpu1[7];
+my $total02 = $cpu2[1] + $cpu2[2] + $cpu2[3] + $cpu2[4] + $cpu2[5] + $cpu2[6] + $cpu2[7];
+
+my $used00 = $cpu0[1] + $cpu0[2] + $cpu0[3] + $cpu0[5] + $cpu0[6] + $cpu0[7];
+my $used01 = $cpu1[1] + $cpu1[2] + $cpu1[3] + $cpu1[5] + $cpu1[6] + $cpu1[7];
+my $used02 = $cpu2[1] + $cpu2[2] + $cpu2[3] + $cpu2[5] + $cpu2[6] + $cpu2[7];
+
+
+
+my $total20 = $cpu20[1] + $cpu20[2] + $cpu20[3] + $cpu20[4] + $cpu20[5] + $cpu20[6] + $cpu20[7];
+my $total21 = $cpu21[1] + $cpu21[2] + $cpu21[3] + $cpu21[4] + $cpu21[5] + $cpu21[6] + $cpu21[7];
+my $total22 = $cpu22[1] + $cpu22[2] + $cpu22[3] + $cpu22[4] + $cpu22[5] + $cpu22[6] + $cpu22[7];
+
+my $used20 = $cpu20[1] + $cpu20[2] + $cpu20[3] + $cpu20[5] + $cpu20[6] + $cpu20[7];
+my $used21 = $cpu21[1] + $cpu21[2] + $cpu21[3] + $cpu21[5] + $cpu21[6] + $cpu21[7];
+my $used22 = $cpu22[1] + $cpu22[2] + $cpu22[3] + $cpu22[5] + $cpu22[6] + $cpu22[7];
+
+var01
+
+var11
+
+
+        total:    used:    free:  shared: buffers:  cached:
+Mem:  2103816192 2061602816 42213376        0        0 1623605248
+Swap:        0        0        0
+
+/usr/bin/rsh -l root $ARGV[0] \"/bin/cat /proc/stat | /bin/grep -i \'cpu\'\"`;
+
+
+Mem:  2103816192 2061279232 42536960        0        0 1623609344
+Swap:        0        0        0
+my @mem  = split(" ", $meminfo[0]);
+my @swap = split(" ", $meminfo[1]);

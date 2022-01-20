@@ -1,0 +1,38 @@
+orig 2162
+
+gdunlap@loki:/etc/snmp$ snmpwalk -v 2c -c 3mYI5iyIdrDyJw localhost | wc -l
+2099
+
+./snmpd -c /etc/snmp/snmpd.conf -V -Lf  /tmp/my.out
+
+
+.1.3.6.1.4.1.2021.58
+
+
+
+/usr/sbin/snmpd -c /etc/snmp/snmpd.conf -V -l /tmp/my.out
+
+
+
+-V -l /tmp/my.out
+
+
+dlmod cbs_mib2 /crossbeam/lib/libcbs_mib2.so
+
+mibfile /usr/share/snmp/mibs/UCD-SNMP-MIB.txt
+mibfile /usr/share/snmp/mibs/CUSTOM-MIB.txt
+
+http://www.infosec.fedex.com/internal/fw/docs/general/Firewall_Build_Document.doc
+
+--   customestat      OBJECT IDENTIFIER ::= { ucdavis 109 }
+
+systemStats OBJECT IDENTIFIER ::= { ucdavis 11 }
+
+ssIndex OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Reference Index for each observed systemStat (1)."
+    ::= { systemStats 1 }
+

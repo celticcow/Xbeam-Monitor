@@ -1,0 +1,80 @@
+Daemonize cbeaml (closed) see init directory
+
+Modify memory poling for Meg instead of KB (open)
+
+Modify system to take second tag for nagios deployment (closed)
+
+Problem starting 7.13.08 : Discovered 07.14.08
+Started seeing CPU on ACluster on both zmd chassis at 100% ... BCluster followed a day or so later.  Disabled daemon on chassis and started debugging.  CPU core's show correct values of < 3% used but cpu average is 100%
+
+7.15.08
+Issue is caused by total cpu being the sum of the two cores.  The average idle from /proc/stat is more than a long int in C can store. C truncates the value.  When we try to add the total0 and total1 value we end up with a negative value as a result
+
+unsigned int    4      32                0 -> +4,294,967,295
+long int        4      32   -2,147,483,648 -> +2,147,483,647
+
+converted values to unsigned int's and used 
+
+parts[i] = strtoul(temp,NULL,0);
+
+to convert to unsigned int instead of 
+
+parts[i] = atoi(temp);
+
+in the void tokencpuline function
+
+------
+07.28.08
+
+Booted up, readings nothing for fw conn, negative for CPU
+need to report error for these conditions
+
+11.03.08
+
+Memory readings does not seem to be reading correct values.  Chassis alarms are going off but memory graphs and readings do not seem to be changing that much (seen on G Cluster Chassis)
+
+09.11.09
+
+Need to add VRRP checks
+
+in 8.0 a show vrrp will work, in later version need show vrrp detail-status
+
+need to add in show redundancy-interface  returns for interface failures
+
+01.05.10
+
+Issue with Memory checks and XOS 8.5 
+there is no longer a memory line in /proc/meminfo
+
+(8.1 = devb_1 (devxb31): root$ cat /proc/meminfo 
+        total:    used:    free:  shared: buffers:  cached:
+	Mem:  2103824384 1153331200 950493184        0        0 425873408
+	Swap:        0        0        0
+	MemTotal:      2054516 kB
+	MemFree:        928216 kB
+	MemShared:           0 kB
+
+8.5 = devb_1 (devb4): ~$ cat /proc/meminfo 
+MemTotal:      2073960 kB
+RawMemTotal:   2097152 kB
+MemFree:       1374232 kB
+Buffers:             0 kB
+
+09.08.10
+Saw issue with grep field in memory in 8.5 code
+
+cosdmz311_1 (CF311-1): ~$ cat /proc/meminfo | grep -i 'MemTotal'
+MemTotal:      8311956 kB
+RawMemTotal:   8912896 kB
+
+vs
+
+ACluster_1 (zmd1): root$ cat /proc/meminfo | grep -i 'MemTotal'
+MemTotal:      2054524 kB
+
+09.22.10
+Issues with total value when adding up all 8 cores.  This caused issues with over flowing an unsigned long
+6874909776 was result
+4294967295 is max of unsigned long
+
+had to change to unsigned long long int

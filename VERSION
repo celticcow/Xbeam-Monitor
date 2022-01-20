@@ -1,0 +1,44 @@
+Initial Code dev work perl version
+04.24.08 probe.pl
+
+Worked to implement perl into snmpd - ticket with crossbeam states this is not possible due to issues with UCD snmpd version of XOS
+
+See Xbeam ticket 00014140
+
+-----
+
+Began C version of Code to run as a network daemon
+
+Version 0.1 05.16.08 Complete able to pol 
+
+CPU both cores and average with all 7 stats
+Memory usage
+
+Version 0.2 05.27.08
+Added Firewall connection table polling
+
+Version 0.3 06.20.08 
+Added second input value nagios use.  use all / cpu / mem / conn
+
+Version 0.4 07.15.08
+Corrected code bug that caused incorrect avg CPU display (see todo)
+
+Version 0.5 09.14.09
+Adding checks for vrrp based on version need details different (see todo)
+Added checks for redundant interfaces
+--need to add in fault checking for negative cpu values
+
+Version 0.5.1 09.15.09
+Fixed data length for vrrp & interface count.  if it was more than 9 we were
+only getting the first number not the second ... used a ?: operator ... just 
+to mess with anyone who ever tries to read the code
+
+Version 0.5.2 12.29.09
+Added R70 checks
+
+Version 05.3 01.05.10
+Bug fix for memory issue in 8.5 (see TODO)
+
+Version 0.6.3 09.23.10
+modified code to handle 8 core and 8.5 XOS code support
+also had to change vars to unsigned long long int to handle the total stats of adding up all 8 cores.
